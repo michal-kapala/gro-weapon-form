@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GRO | Add weapon</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            margin: 0;
+            background-color: #333;
+            color: #fff;
+          }
+          .container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            width: 100%;
+          }
+          h1, h2, h3 {
+            text-align: center;
+            color: #fff;
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+          }
+          .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+          }
+          .form-group label, .form-group input[type="text"], .form-group select {
+            width: 100%;
+            max-width: 300px;
+          }
+          .form-group label {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 20px;
+          }
+          .form-group input[type="text"], .form-group select {
+            padding: 8px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #444;
+            color: #fff;
+          }
+          .components {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 20px;
+            gap: 20px;
+          }
+          .components .column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 0 10px;
+          }
+          .components .column label, .components .column input[type="text"] {
+            width: 100%;
+            max-width: none;
+          }
+          .components .column label {
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 24px;
+          }
+          .components .column input[type="text"] {
+            padding: 8px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #444;
+            color: #fff;
+          }
+          .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 28px;
+          }
+          .flex-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+          }
+          .flex-item label {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 24px;
+          }
+          .flex-item input[type="text"], .flex-item select {
+            padding: 8px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #444;
+            color: #fff;
+          }
+          input[type="text"], select {
+            font-size: 24px
+          }
+          button {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 24px;
+          }
+          button:hover {
+            background-color: #45a049;
+          }
+      </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Add GRO weapon</h1>
+            <form method="POST">
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <label for="class">Class</label>
+                        <select id="class" name="class">
+                            <option value="Assault rifle">Assault rifle</option>
+                            <option value="Sniper rifle">Sniper rifle</option>
+                            <option value="Shotgun">Shotgun</option>
+                            <option value="SMG">SMG</option>
+                            <option value="LMG">LMG</option>
+                            <option value="Pistol">Pistol</option>
+                            <option value="Grenade">Grenade</option>
+                        </select>
+                    </div>
+                    <div class="flex-item">
+                        <label for="oasis_name_id">OASIS name ID</label>
+                        <input type="text" id="oasis_name_id" name="oasis_name_id">
+                    </div>
+                    <div class="flex-item">
+                        <label for="price_rp">Price RP</label>
+                        <input type="text" id="price_rp" name="price_rp">
+                    </div>
+                    <div class="flex-item">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="flex-item">
+                        <label for="unlock_level">Unlock level</label>
+                        <input type="text" id="unlock_level" name="unlock_level">
+                    </div>
+                    <div class="flex-item">
+                        <label for="price_gc">Price GC</label>
+                        <input type="text" id="price_gc" name="price_gc">
+                    </div>
+                </div>
+                <h1>Components</h1>
+                <div class="components">
+                    <div class="column">
+                        <label for="body">0. Body</label>
+                        <input type="text" id="body" name="body">
+
+                        <label for="class_modifier">1. ClassModifier</label>
+                        <input type="text" id="class_modifier" name="class_modifier">
+
+                        <label for="primary_ammo">2. PrimaryAmmo</label>
+                        <input type="text" id="primary_ammo" name="primary_ammo">
+                        
+                        <label for="unused_alternate_ammo">3. UNUSED_AlternateAmmo</label>
+                        <input type="text" id="unused_alternate_ammo" name="unused_alternate_ammo">
+
+                        <label for="stock">4. Stock</label>
+                        <input type="text" id="stock" name="stock">
+
+                        <label for="fore_grip">5. ForeGrip</label>
+                        <input type="text" id="fore_grip" name="fore_grip">
+
+                        <label for="barrel">6. Barrel</label>
+                        <input type="text" id="barrel" name="barrel">
+
+                        <label for="barrel_attach">7. BarrelAttach</label>
+                        <input type="text" id="barrel_attach" name="barrel_attach">
+
+                        <label for="scope">8. Scope</label>
+                        <input type="text" id="scope" name="scope">
+
+                        <label for="clip">9. Clip</label>
+                        <input type="text" id="clip" name="clip">
+
+                        <label for="grenade_launcher">10. GrenadeLauncher</label>
+                        <input type="text" id="grenade_launcher" name="grenade_launcher">
+
+                        <label for="flashlight">11. Flashlight</label>
+                        <input type="text" id="flashlight" name="flashlight">
+                    </div>
+                    <div class="column">
+                        <label for="laser_pointer">12. LaserPointer</label>
+                        <input type="text" id="laser_pointer" name="laser_pointer">
+
+                        <label for="top_ammo_attach">13. TopAmmoAttach</label>
+                        <input type="text" id="top_ammo_attach" name="top_ammo_attach">
+
+                        <label for="stock_attach">14. StockAttach</label>
+                        <input type="text" id="stock_attach" name="stock_attach">
+
+                        <label for="fire_mode_full_auto">15. FireModeFullAuto</label>
+                        <input type="text" id="fire_mode_full_auto" name="fire_mode_full_auto">
+
+                        <label for="fire_mode_semi_auto">16. FireModeSemiAuto</label>
+                        <input type="text" id="fire_mode_semi_auto" name="fire_mode_semi_auto">
+
+                        <label for="fire_mode_burst">17. FireModeBurst</label>
+                        <input type="text" id="fire_mode_burst" name="fire_mode_burst">
+
+                        <label for="fire_mode_single_shot">18. FireModeSingleShot</label>
+                        <input type="text" id="fire_mode_single_shot" name="fire_mode_single_shot">
+
+                        <label for="fg_bottom_attach">19. FG_BottomAttach</label>
+                        <input type="text" id="fg_bottom_attach" name="fg_bottom_attach">
+
+                        <label for="fore_grip_and_barrel">20. ForeGripAndBarrel</label>
+                        <input type="text" id="fore_grip_and_barrel" name="fore_grip_and_barrel">
+
+                        <label for="bipod">21. Bipod</label>
+                        <input type="text" id="bipod" name="bipod">
+
+                        <label for="melee">22. Melee</label>
+                        <input type="text" id="melee" name="melee">
+
+                        <label for="material">23. Material</label>
+                        <input type="text" id="material" name="material">
+
+                        <label for="weapon_boost">24. WeaponBoost</label>
+                        <input type="text" id="weapon_boost" name="weapon_boost">
+                    </div>
+                </div>
+                <h1>Stats</h1>
+                <div class="form-group">
+                    <h2>Damage</h2>
+                    <label for="WCPT_Damage_F">WCPT_Damage_F</label>
+                    <input type="text" id="WCPT_Damage_F" name="WCPT_Damage_F">
+
+                    <label for="WCPT_FireMode_RoundsPerShot_F">WCPT_FireMode_RoundsPerShot_F</label>
+                    <input type="text" id="WCPT_FireMode_RoundsPerShot_F" name="WCPT_FireMode_RoundsPerShot_F">
+
+                    <h2>Accuracy</h2>
+                    <label for="WCPT_Reticule_MinRadius_Base_F">WCPT_Reticule_MinRadius_Base_F</label>
+                    <input type="text" id="WCPT_Reticule_MinRadius_Base_F" name="WCPT_Reticule_MinRadius_Base_F">
+
+                    <label for="WCPT_Reticule_ExtraBonus_F">WCPT_Reticule_ExtraBonus_F</label>
+                    <input type="text" id="WCPT_Reticule_ExtraBonus_F" name="WCPT_Reticule_ExtraBonus_F">
+
+                    <label for="WCPT_Reticule_ScopeSightMultiplier_F">WCPT_Reticule_ScopeSightMultiplier_F</label>
+                    <input type="text" id="WCPT_Reticule_ScopeSightMultiplier_F" name="WCPT_Reticule_ScopeSightMultiplier_F">
+
+                    <h2>Recoil</h2>
+                    <label for="WCPT_Recoil_MinX_Base_F">WCPT_Recoil_MinX_Base_F</label>
+                    <input type="text" id="WCPT_Recoil_MinX_Base_F" name="WCPT_Recoil_MinX_Base_F">
+
+                    <label for="WCPT_Recoil_MinY_Base_F">WCPT_Recoil_MinY_Base_F</label>
+                    <input type="text" id="WCPT_Recoil_MinY_Base_F" name="WCPT_Recoil_MinY_Base_F">
+
+                    <label for="WCPT_Recoil_MaxX_Base_F">WCPT_Recoil_MaxX_Base_F</label>
+                    <input type="text" id="WCPT_Recoil_MaxX_Base_F" name="WCPT_Recoil_MaxX_Base_F">
+
+                    <label for="WCPT_Recoil_MaxY_Base_F">WCPT_Recoil_MaxY_Base_F</label>
+                    <input type="text" id="WCPT_Recoil_MaxY_Base_F" name="WCPT_Recoil_MaxY_Base_F">
+
+                    <label for="WCPT_Recoil_IronsightModifierX_F">WCPT_Recoil_IronsightModifierX_F</label>
+                    <input type="text" id="WCPT_Recoil_IronsightModifierX_F" name="WCPT_Recoil_IronsightModifierX_F">
+
+                    <label for="WCPT_Recoil_IronsightModifierY_F">WCPT_Recoil_IronsightModifierY_F</label>
+                    <input type="text" id="WCPT_Recoil_IronsightModifierY_F" name="WCPT_Recoil_IronsightModifierY_F">
+
+                    <h2>Fire rate</h2>
+                    <label for="WCPT_FireMode_AutoRateOfFire_F">WCPT_FireMode_AutoRateOfFire_F</label>
+                    <input type="text" id="WCPT_FireMode_AutoRateOfFire_F" name="WCPT_FireMode_AutoRateOfFire_F">
+
+                    <label for="WCPT_FireMode_BurstCycleDelay_F">WCPT_FireMode_BurstCycleDelay_F</label>
+                    <input type="text" id="WCPT_FireMode_BurstCycleDelay_F" name="WCPT_FireMode_BurstCycleDelay_F">
+
+                    <h2>Handling</h2>
+                    <label for="WCPT_Animation_ReadyWeapon_RushToStop_F">WCPT_Animation_ReadyWeapon_RushToStop_F</label>
+                    <input type="text" id="WCPT_Animation_ReadyWeapon_RushToStop_F" name="WCPT_Animation_ReadyWeapon_RushToStop_F">
+
+                    <h2>Ammo</h2>
+                    <label for="WCPT_Ammo_ClipSize_F">WCPT_Ammo_ClipSize_F</label>
+                    <input type="text" id="WCPT_Ammo_ClipSize_F" name="WCPT_Ammo_ClipSize_F">
+                    
+                    <label for="WCPT_Ammo_ClipSize_Multiplier_F">WCPT_Ammo_ClipSize_Multiplier_F</label>
+                    <input type="text" id="WCPT_Ammo_ClipSize_Multiplier_F" name="WCPT_Ammo_ClipSize_Multiplier_F">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
