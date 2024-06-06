@@ -204,8 +204,10 @@ class DB:
       (iid, type, name, dtype, insideinventory, sellable, lootable, rewardable, unlockable, maxslot, gearscore, IGCvalue, oname, odesc)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", temp_items)
 
-    last_comp_id = self.CUR.execute("SELECT id FROM components WHERE id=(SELECT MAX(id) FROM components)").fetchone()[0]
-    gr5_comps, fgb_comp = Component.make_comps(comps, customizable, int(last_comp_id))
+    last_comp_id = self.CUR.execute("SELECT MAX(id) FROM components").fetchone()[0]
+    # prevents the overlap with template item ids
+    OFFSET = 10000
+    gr5_comps, fgb_comp = Component.make_comps(comps, customizable, int(last_comp_id) + OFFSET)
     self.CUR.executemany("""INSERT INTO components (mapKey, iid, key, type, bonestructure, modifierlistid)
                             VALUES (?, ?, ?, ?, ?, ?)""", gr5_comps)
 
