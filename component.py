@@ -68,8 +68,8 @@ class Component:
           comp_name = "Mid Barrel"
           oasis = 70876
         case WCMT.BarrelAttach:
-          comp_name = "Barrel Attach"
-          oasis = 71818
+          comp_name = "Muzzle Brake"
+          oasis = 70883
         case WCMT.Scope:
           comp_name = "Scope"
           oasis = 70898
